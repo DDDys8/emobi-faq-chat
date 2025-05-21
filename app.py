@@ -49,3 +49,12 @@ if query:
     st.subheader("📚 参照されたFAQ")
     for i, doc in enumerate(result["source_documents"]):
         st.markdown(f"**チャンク{i+1}**\n\n```\n{doc.page_content[:500]}\n```")
+
+from langchain_community.embeddings import HuggingFaceEmbeddings
+
+# CPU 強制指定（Streamlit Cloud ではGPU非対応のため）
+embedding_model = HuggingFaceEmbeddings(
+    model_name="all-MiniLM-L6-v2",
+    model_kwargs={"device": "cpu"}
+)
+
