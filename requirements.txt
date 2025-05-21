@@ -7,4 +7,3 @@ sentence-transformers
 openai
 tqdm
 pandas
-langchain-community
